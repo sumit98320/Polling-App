@@ -1,0 +1,37 @@
+<form [formGroup]="createPollForm">
+    <div class="col-md-6 container" >
+        <h2>Create Poll</h2>
+        <div class="formGroup">
+            <label>Title:</label>
+            <input type="text" class="form-control"  placeholder="Enter Your Question" formControlName="que" >
+            <small class="error" class="text-danger" *ngIf="que && que.invalid && que.touched">Question Field required </small>
+            <div class="col-md-5" >
+            Option 1
+            <input type="text" class="form-control"  placeholder="Enter Your Option" formControlName="opt1" >
+            <small class="error" class="text-danger" *ngIf="opt1 && opt1.invalid && opt1.touched">Option Field required </small>
+        </div>
+        <div class="col-md-5" >
+            Option 2
+            <input type="text" class="form-control"  placeholder="Enter Your Option" formControlName="opt2" >
+            <small class="error" class="text-danger" *ngIf="opt2 && opt2.invalid && opt2.touched">Option Field required </small>
+        </div>
+        <div class="col-md-5" >
+            Option 3
+            <input type="text" class="form-control"  placeholder="Enter Your Option" formControlName="opt3" >
+            <small class="error" class="text-danger" *ngIf="opt3 && opt3.invalid && opt3.touched">Option Field required </small>
+        </div>
+        <div class="col-md-5" >
+            Option 4
+            <input type="text" class="form-control"  placeholder="Enter Your Option" formControlName="opt4" >
+            <small class="error" class="text-danger" *ngIf="opt4 && opt4.invalid && opt4.touched">Option Field required </small>
+        </div>
+          </div> <br>
+      <button class="btn btn-success" [disabled]="createPollForm.invalid "  (click)="getValue()"  routerLinkActive="active" >Submit</button>
+
+
+
+</div>
+
+
+
+</form>

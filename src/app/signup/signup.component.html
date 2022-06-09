@@ -1,0 +1,43 @@
+
+  <div class="col-md-6 container">
+    <h2 style="text-align: center;">Signup Form</h2>
+    <form [formGroup]="signupForm"  >
+      <div *ngIf="existence" class="alert alert-danger">
+        User Already Exist
+      </div>
+      <div class="formGroup">
+       
+      <label>Username :</label>
+      <input type="text" class="form-control"  placeholder="Enter name" formControlName="username" minlength="5" >
+      <small class="error" class="text-danger" *ngIf="username && username.invalid && username.touched">Name Field required (atleast 5 character)</small>
+    </div> 
+    <br>
+    <div class="formGroup">
+      <label>Password:</label>
+      <input type="password" class="form-control" placeholder="Enter password" minlength="6" formControlName="password" >
+      <small class="error" class="text-danger" *ngIf="password && password.invalid && password.touched">Minimum 6 characters required</small>
+    </div>
+    <br>
+ 
+    <div  class="formGroup">
+      <select class="form-select" aria-label="Default select example" formControlName="role">
+        <!-- <label >Role</label> --> 
+        <option selected>Select Role</option>
+        <option >Admin</option>
+        <option>Guest</option>
+        
+      </select>
+     </div><br>
+    
+      <button class="btn btn-success" [disabled]="signupForm.invalid "  (click)="getValue()"   routerLinkActive="active" >Signup</button>
+      <p>Already have accoount</p>
+      <button  class="btn btn-primary" routerLink="../login" routerLinkActive="active">Please Login</button>
+  
+    </form>
+  </div>
+  
+
+  
+  
+
+

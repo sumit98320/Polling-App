@@ -1,0 +1,26 @@
+<form  [formGroup]="loginForm">
+  
+    <div class="col-md-6 container" >
+      <div *ngIf="existence" class="alert alert-danger">
+        User doesnot Exist
+      </div>
+      <h2> Login Form</h2>
+  
+        <div class="formGroup">
+          <label>Username :</label>
+          <input type="text" class="form-control"  placeholder="Enter name" formControlName="username"  >
+          <small class="error"  class="text-danger" *ngIf="username && username.invalid && username.touched">Username required</small>
+        </div> 
+        <br>
+        <div class="formGroup">
+          <label>Password:</label>
+          <input type="password" class="form-control" placeholder="Enter password" minlength="6" formControlName="password" >
+          <small class="error"  class="text-danger" *ngIf="password && password.invalid && password.touched">Minimum 6 characters required</small>
+        </div>
+        <br>
+        <button class="btn btn-success"  (click)="getValue()"  routerLinkActive="active" >Login</button><br>
+        <p>If don't have account</p>
+        <button  class="btn btn-primary" routerLink="../signup" routerLinkActive="active"> Create Account</button>
+        </div>
+      </form>
+
