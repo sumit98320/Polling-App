@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormControl , Validators } from '@angular/forms';
 import { CreatepollService } from "./createpoll.service";
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-createpoll',
@@ -18,6 +18,8 @@ export class CreatepollComponent implements OnInit {
     opt4: new FormControl('',Validators.required), 
 
   });
+isLoggedIn: boolean=false;
+
   get que(){
     return this.createPollForm.get('que')
   }
@@ -34,10 +36,13 @@ export class CreatepollComponent implements OnInit {
     return this.createPollForm.get('opt4')
   }
 
-  constructor(private createpollService: CreatepollService, private router: Router) { }
+  constructor(private createpollService: CreatepollService) { }
 
   ngOnInit(): void {
+    this.checkUser(); 
+
   }
+  
   getValue(){
     // console.log(this.createPollForm.value);
     this.createpollService.createpoll(this.createPollForm.value.que,this.createPollForm.value.opt1,this.createPollForm.value.opt2,this.createPollForm.value.opt3,this.createPollForm.value.opt4).subscribe((data: any) => {
@@ -45,5 +50,16 @@ export class CreatepollComponent implements OnInit {
     
     this.createPollForm.reset();
   })
+}
+checkUser() {
+  let token = localStorage.getItem('token');
+  
+  
+  if (token) {
+   this.isLoggedIn= true;
+  }
+  else {
+    this.isLoggedIn= false;
+  }
 }
 }

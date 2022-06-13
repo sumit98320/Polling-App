@@ -32,11 +32,12 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  Role: string="";
   getValue(){
     
     this.signupService.signup(this.signupForm.value.username, this.signupForm.value.password, this.signupForm.value.role).subscribe((data: any) => {
       console.log(data, this.signupForm.value);
-      
+      this.Role=data.data.role;
       
       if(data.error){
         this.existence = true;

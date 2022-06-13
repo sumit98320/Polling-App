@@ -14,11 +14,11 @@
         <br>
         <div class="formGroup">
           <label>Password:</label>
-          <input type="password" class="form-control" placeholder="Enter password" minlength="6" formControlName="password" >
-          <small class="error"  class="text-danger" *ngIf="password && password.invalid && password.touched">Minimum 6 characters required</small>
+          <input type="password" class="form-control" placeholder="Enter password"  formControlName="password" >
+          <small class="error"  class="text-danger" *ngIf="password && password.invalid && password.touched">Password required</small>
         </div>
         <br>
-        <button class="btn btn-success"  (click)="getValue()"  routerLinkActive="active" >Login</button><br>
+        <button class="btn btn-success" [disabled]="loginForm.invalid " (click)="getValue()"  routerLinkActive="active" >Login</button><br>
         <p>If don't have account</p>
         <button  class="btn btn-primary" routerLink="../signup" routerLinkActive="active"> Create Account</button>
         </div>

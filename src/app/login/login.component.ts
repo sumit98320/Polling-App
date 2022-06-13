@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup ,FormControl ,Validators} from '@angular/forms';
 import { LoginService } from "./login.service";
 import { Router } from '@angular/router';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
       if(data.error){
         this.existence = true;
       }
-      else{this.router.navigate(['../dashboard']);} 
+      else{this.router.navigate(['../polllist']);} 
       
     })
   }

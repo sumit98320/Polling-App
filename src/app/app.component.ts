@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'polling-app';
 
+  ngOnInit(): void {
+  }
 
+  
 
   
 }

@@ -1,0 +1,27 @@
+<div *ngIf="isLoggedIn">
+    <app-dashboard></app-dashboard>
+</div>
+<div class="col-md-6 container">
+    <h1 style="text-align: center;">MCQ Polls</h1>
+    <form *ngIf="data.length">
+        <div class="border" *ngFor="let item of data">
+            <span class="checkmark"></span>
+            <label class="radio"> Q.{{item['title']}}</label>
+            <div class="option" *ngFor="let opt of item['options']">
+                <input type="radio" name="radio">
+                {{opt['option']}} 
+            </div>
+            
+            <button type="submit"  class="btn btn-success">Submit</button>
+            <button type="submit"  class="btn btn-primary">Edit Title</button>
+            <button type="submit"  class="btn btn-secondary">New Option</button>
+            <button type="submit"  class="btn btn-danger">Delete Option</button>
+            <button type="submit"  class="btn btn-danger">Delete Poll</button>
+
+
+    
+        </div>
+        
+    </form>
+</div>
+
