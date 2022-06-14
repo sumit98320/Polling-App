@@ -1,3 +1,4 @@
+
 <div *ngIf="isLoggedIn">
     <app-dashboard></app-dashboard>
 </div>
@@ -13,10 +14,10 @@
             </div>
             
             <button type="submit"  class="btn btn-success">Submit</button>
-            <button type="submit"  class="btn btn-primary">Edit Title</button>
-            <button type="submit"  class="btn btn-secondary">New Option</button>
-            <button type="submit"  class="btn btn-danger">Delete Option</button>
-            <button type="submit"  class="btn btn-danger">Delete Poll</button>
+            <button  type="submit" (click)="openDialog(item)"  class="btn btn-primary" >Edit Title</button>
+            <button type="submit" (click)="openDialog1()" class="btn btn-secondary">New Option</button>
+            <button type="submit" (click)="openDialog2()" class="btn btn-danger">Delete Option</button>
+            <button type="submit" (click)="openDialog3()" class="btn btn-danger">Delete Poll</button>
 
 
     
